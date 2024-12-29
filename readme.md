@@ -37,8 +37,8 @@ This project involves creating an AI-powered health prediction model using PyTor
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/health-prediction-ai.git
-   cd health-prediction-ai
+   git clone https://github.com/mahingaRodin/Disease-Predictor.git
+   cd Disease-Predictor
    ```
 2. Install the required dependencies:
    ```bash
@@ -80,7 +80,7 @@ The output will display the predicted disease and health advice.
 ## Project Structure
 
 ```
-health-prediction-ai/
+Disease-Predictor/
 ├── data/
 │   └── health_data.csv        # Example dataset
 ├── models/
