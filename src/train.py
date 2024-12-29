@@ -38,5 +38,35 @@ test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
+#training the models
+
+from torch.optim import Adam
+from torch.nn import CrossEntropyLoss
+
+
+#defineing the model
+model = define_model(input_size=X_train.shape[1] , output_size=len(y.unique()))
+criterion = CrossEntropyLoss()
+optimizer = Adam(model.parameters(), lr=0.001)
+
+#training loop
+epochs = 50
+for epoch in range(epochs):
+    model.train()
+    epoch_loss = 0
+
+    for batch in train_loader:
+        inputs, labels = batch
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        epoch_loss += loss.item()
+
+    print(f"Epoch {epoch + 1}/{epochs}, Loss: {epoch_loss:.4f}")
+
+# Save the trained model
+torch.save(model.state_dict(), "../models/health_model.pth")
 
 
