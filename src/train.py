@@ -1,7 +1,6 @@
 from ucimlrepo import fetch_ucirepo
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-import pandas as pd
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 from utils import define_model

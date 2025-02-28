@@ -2,8 +2,7 @@ from sympy import false
 from ucimlrepo import fetch_ucirepo
 from utils import define_model, generate_advice
 import torch
-from sklearn.preprocessing import StandardScaler
-import pandas as pd
+
 
 # Load the saved model and scaler
 model = define_model(input_size=13, output_size=5)  # Update input and output sizes accordingly
