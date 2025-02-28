@@ -30,4 +30,7 @@ new_sample_df = pd.DataFrame(new_sample, columns=dataset.drop('target', axis=1).
 
 # Make predictions
 prediction = loaded_model.predict(new_sample_df)
-print("Predicted class: ", prediction)
+if prediction == 1:
+    print("The person is predicted to have heart disease.")
+else:
+    print("The person is predicted to not have heart disease.")
