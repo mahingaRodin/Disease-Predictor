@@ -130,12 +130,15 @@ for i in estimators:
     rf_classifier.fit(X_train, y_train)
     rf_scores.append(rf_classifier.score(X_test, y_test))
 
-colors = rainbow(np.linspace(0,1, len(estimators)))
-plt.bar([i for i in range(len(estimators))], rf_scores, color = colors, width=0.8)
-plt.text(i, rf_scores[i], rf_scores[i])
-plt.xticks(ticks = [i for i in range(len(estimators))], labels= [str(estimator) for estimator in estimators])
+colors = rainbow(np.linspace(0, 1, len(estimators)))
+plt.bar([i for i in range(len(estimators))], rf_scores, color=colors, width=0.8)
+
+# Correcting the indexing issue
+for idx, score in enumerate(rf_scores):  
+    plt.text(idx, score, f"{score:.2f}")
+
+plt.xticks(ticks=[i for i in range(len(estimators))], labels=[str(estimator) for estimator in estimators])
 plt.xlabel('Number of estimators')
 plt.ylabel('Scores')
 plt.title('Random Forest Classifier scores for different number of estimators')
 plt.show()
-print("The score for Random Forest Classifier is {}% with {} estimators.".format(rf_scores[1]*100, [100, 500]))
