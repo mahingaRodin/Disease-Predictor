@@ -13,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2tg6qZMS7GhBRu4JATSFRhYElvT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +28,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/user/OneDrive/Desktop/DP/HeartDiseasePredictor",
+    "last_opened_file_path": "C:/Users/user/OneDrive/Desktop/DP/modernDP",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740761562203</updated>
       <workItem from="1740761563270" duration="1784000" />
+      <workItem from="1741114543350" duration="40000" />
     </task>
     <servers />
   </component>
