@@ -45,17 +45,17 @@ def make_prediction(input_data, columns_to_scale, all_columns):
 example_data = pd.DataFrame({
     'age': [22],
     'sex': [1],  # Male
-    'cp': [4],   # Typical angina
-    'trestbps': [209],
-    'chol': [235],
-    'fbs': [1],  # Fasting blood sugar > 120 mg/dl
-    'restecg': [1],  # Normal
-    'thalach': [150],
-    'exang': [200],  # No exercise induced angina
-    'oldpeak': [2.3],
-    'slope': [20],  # Downsloping
-    'ca': [2000],  # No major vessels colored by fluoroscopy
-    'thal': [2]   # Normal
+    'cp': [0],   # Asymptomatic (no chest pain)
+    'trestbps': [120],  # Normal blood pressure
+    'chol': [200],  # Normal cholesterol
+    'fbs': [0],  # Fasting blood sugar < 120 mg/dl
+    'restecg': [0],  # Normal electrocardiographic results
+    'thalach': [160],  # Normal maximum heart rate achieved
+    'exang': [0],  # No exercise-induced angina
+    'oldpeak': [0.0],  # No depression of ST segment
+    'slope': [1],  # Upsloping (normal)
+    'ca': [0],  # No major vessels colored by fluoroscopy
+    'thal': [3]  # Normal
 })
 
 # List of columns that were used for scaling in the training phase
