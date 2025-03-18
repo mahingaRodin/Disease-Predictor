@@ -43,18 +43,18 @@ def make_prediction(input_data, columns_to_scale, all_columns):
 # You can replace this with input from users, or an example test dataset
 # Example data: a sample entry with the same structure as the dataset
 example_data = pd.DataFrame({
-    'age': [63],
+    'age': [22],
     'sex': [1],  # Male
-    'cp': [3],   # Typical angina
-    'trestbps': [145],
-    'chol': [233],
+    'cp': [4],   # Typical angina
+    'trestbps': [209],
+    'chol': [235],
     'fbs': [1],  # Fasting blood sugar > 120 mg/dl
-    'restecg': [0],  # Normal
+    'restecg': [1],  # Normal
     'thalach': [150],
-    'exang': [0],  # No exercise induced angina
+    'exang': [200],  # No exercise induced angina
     'oldpeak': [2.3],
-    'slope': [3],  # Downsloping
-    'ca': [0],  # No major vessels colored by fluoroscopy
+    'slope': [20],  # Downsloping
+    'ca': [2000],  # No major vessels colored by fluoroscopy
     'thal': [2]   # Normal
 })
 
