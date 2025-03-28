@@ -47,5 +47,9 @@ def predict():
 def favicon():
     return '', 204  # No content
 
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app)  # Allow all origins
+
 if __name__ == "__main__":
     app.run(debug=True)
