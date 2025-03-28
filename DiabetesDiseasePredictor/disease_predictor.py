@@ -1,55 +1,38 @@
+# Save as app.py or run with flask --app disease_predictor run
 from flask import Flask, request, jsonify
-import joblib  # For loading trained models
+from flask_cors import CORS
+import joblib
 import pandas as pd
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS
 
-# Load your trained model
-model = joblib.load(r"C:/Users/user/OneDrive/Desktop/DP/DiabetesDiseasePredictor/diabetes-model.pkl")
+# Load model (update path)
+try:
+    model = joblib.load(r"C:\Users\user\OneDrive\Desktop\DP\DiabetesDiseasePredictor\diabetes-model.pkl")
+except Exception as e:
+    print(f"Model loading failed: {e}")
+    model = None
 
-# Home route
-@app.route('/')
-def home():
-    return "Welcome to the Disease Predictor API!"
-
-@app.route("/predict", methods=["POST"])
+@app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get the input data from the request
         data = request.get_json()
-
-        # Ensure the input data has the right columns
-        required_columns = [
+        
+        # Define EXACT feature order expected by model
+        required_features = [
             'Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness',
             'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age'
         ]
         
-        # Validate if the data has all required columns
-        if not all(col in data for col in required_columns):
-            return jsonify({"error": "Missing required fields in the input data."}), 400
-
-        # Convert the input data to a pandas DataFrame for prediction
-        df = pd.DataFrame([data])
-
-        # Make prediction using the model
+        # Create DataFrame with enforced column order
+        df = pd.DataFrame([data], columns=required_features)
+        
         prediction = model.predict(df)[0]
-
-        # Convert the prediction to a native Python type (int or float)
-        prediction = int(prediction)  # Or float(prediction) if it's a float prediction
-
-        # Return the prediction result
-        return jsonify({"prediction": prediction})
+        return jsonify({"prediction": int(prediction)})
+        
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Favicon route to avoid 404
-@app.route('/favicon.ico')
-def favicon():
-    return '', 204  # No content
-
-from flask_cors import CORS
-app = Flask(__name__)
-CORS(app)  # Allow all origins
-
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
