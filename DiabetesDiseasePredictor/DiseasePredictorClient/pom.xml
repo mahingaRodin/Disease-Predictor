@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.demo</groupId>
+  <artifactId>DiseasePredictorClient</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - DiseasePredictorClient</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <!-- JSON-java library (org.json) -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20210307</version> <!-- Or use the latest version -->
+    </dependency>
+  </dependencies>
+</project>
+
+
